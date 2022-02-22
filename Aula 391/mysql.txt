@@ -88,14 +88,16 @@
 
 //SELECT * FROM `tb_alunos` WHERE nome LIKE 'I__';
 
-//--------
-// HEAD
+//
+
+ //HEAD
 //SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC;
 
 //SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome DESC;
 
 //SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC, idade DESC, estado ASC;
-//=======
+
+//
 
 //SELECT * FROM `tb_alunos` LIMIT 25;
 
@@ -107,7 +109,7 @@
 
 //SELECT * FROM `tb_alunos` LIMIT 4 OFFSET 8;
 
-//--------
+//
 
 //SELECT MIN(investimento) FROM `tb_cursos`;
 
@@ -120,7 +122,7 @@
 
 //SELECT AVG(investimento) FROM `tb_cursos` WHERE ativo = true;
 
-//--------
+//
 
 //SELECT SUM(investimento) FROM `tb_cursos`;
 
@@ -130,7 +132,7 @@
 
 //SELECT COUNT(*) FROM `tb_cursos`;
 
-//--------
+//
 
 //SELECT * FROM `tb_alunos` GROUP BY interesse;
 
@@ -145,7 +147,7 @@
 
 //SELECT estado, COUNT(*) AS total_por_interesse FROM `tb_alunos` WHERE estado = 'ES'; 
 
-//-------
+//
 
 //SELECT estado, COUNT(*) as total_de_registros FROM `tb_alunos` GROUP BY estado;
 
@@ -157,7 +159,7 @@
 
 //SELECT estado, COUNT(*) as total_de_registros FROM `tb_alunos` WHERE interesse != 'Esporte' GROUP BY estado HAVING //total_de_registros > 3;
 
-//-------
+//
 
 //UPDATE tb_alunos SET nome = 'João' WHERE id_aluno = 13;
 
@@ -172,7 +174,7 @@
 
 //SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25 AND estado = 'PA';
 
-//-------
+//
 
 //DELETE FROM tb_alunos WHERE id_aluno = 5;
 
@@ -180,8 +182,8 @@
 
 //DELETE FROM `tb_alunos` WHERE idade IN(10,18,22,28,34) AND interesse = 'Esporte';
 
-//-------
-//PROJETO LOJA VIRTUAL
+//
+PROJETO LOJA VIRTUAL
 CREATE DATABASE bd_loja_virtual;
 
 CREATE TABLE tb_produtos(
@@ -240,3 +242,6 @@ INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(2,3);
 INSERT INTO tb_clientes(nome, idade) VALUES('Jamilton', 30);
 INSERT INTO tb_pedidos(id_cliente) VALUES(2);
 INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(3,1);
+
+SELECT * FROM tb_clientes LEFT JOIN tb_pedidos ON (tb_clientes.id_cliente = tb_pedidos.id_cliente);
+SELECT * FROM tb_produtos LEFT JOIN tb_imagens ON (tb_produtos.id_produto = tb_imagens.id_produto);
